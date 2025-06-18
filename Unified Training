@@ -1,0 +1,91 @@
+Unified Training & Evaluation Pipeline for Disinformation Detection
+1. Data Preprocessing
+Input: Dataset(s) with labelled instances of disinformation and factual content (e.g., news articles, social media posts).
+
+Steps:
+
+Text cleaning (tokenisation, lowercasing, removing URLs/special chars)
+
+Label encoding (e.g., 0 = factual, 1 = disinformation)
+
+Split: Train / Validation / Test (e.g., 70/15/15)
+
+Vectorisation:
+
+TF-IDF or Word Embeddings for baseline
+
+Knowledge graphs, concept linking, or symbolic metadata for NeSy
+
+2. Model Definitions
+Model A: Baseline
+
+E.g., Logistic Regression, Random Forest, or LSTM
+
+Black-box approach, minimal interpretability
+
+Model B: Neuro-Symbolic AI
+
+Neural module for representation (e.g., Transformer, BERT)
+
+Symbolic reasoning module (e.g., logic rules, Prolog-like reasoning, Theorem Provers)
+
+Fusion Layer: Combines output of neural and symbolic subsystems
+
+3. Training Loop
+For each model:
+
+Initialise model with appropriate architecture
+
+Train on training data:
+
+Track loss, accuracy, and convergence behaviour
+
+Save best-performing weights
+
+4. Evaluation Metrics
+Apply models to the test set and compare:
+
+Accuracy
+
+Precision / Recall / F1-Score
+
+Confusion Matrix
+
+Interpretability Assessment:
+
+For NeSy: extract logical rules or decision paths
+
+For baseline: feature importances or SHAP values (if applicable)
+
+5. Explainability Audit
+Qualitative:
+
+Can the model justify its predictions?
+
+Do symbolic outputs align with known disinformation patterns?
+
+Quantitative:
+
+Compare performance drop when removing symbolic module
+
+Human-in-the-loop feedback from intelligence analysts (optional)
+
+6. Report Output
+Generate evaluation report:
+
+Metrics comparison
+
+Interpretability results
+
+Trade-offs (speed vs. transparency)
+
+Visualise:
+
+ROC curves, decision trees (if symbolic), heatmaps, example outputs
+
+7. Deployment Simulation (Optional)
+Simulate real-world input stream (e.g., social media feed)
+
+Run both models on new unseen data
+
+Log inference time, transparency score, and performance
