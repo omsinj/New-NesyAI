@@ -1,0 +1,86 @@
+MODEL 1: BASELINE (Black-Box AI)
+⚙️ Goal:
+Detect disinformation using a traditional deep learning classifier, with high accuracy, but limited transparency.
+
+🔧 Architecture Overview:
+mathematica
+Copy
+Input Text (e.g. news headline or article)
+    ↓
+Tokenizer (e.g. BERT tokenizer)
+    ↓
+Pretrained Language Model (e.g. DistilBERT / BERT)
+    ↓
+CLS Token Embedding
+    ↓
+Feedforward Classification Layer
+    ↓
+Output: Binary Label (Real / Fake)
+🧠 Tools & Libraries:
+Transformers (transformers by HuggingFace)
+
+PyTorch or TensorFlow
+
+Tokeniser + model weights (BERT, RoBERTa, or DistilBERT)
+
+📦 Output:
+Probability or softmax score for each class
+
+No direct insight into “why” a classification was made
+
+🧠 MODEL 2: NEURO-SYMBOLIC AI (Transparent Model)
+⚙️ Goal:
+Blend neural pattern recognition with symbolic reasoning, so outputs are explainable to intelligence analysts.
+
+🔧 Architecture Overview (Two-Stage Hybrid):
+markdown
+Copy
+Stage 1: Neural Model
+---------------------
+Input Text
+    ↓
+Tokenizer (BERT-style)
+    ↓
+Pretrained Neural Encoder (BERT/DistilBERT)
+    ↓
+Text Embeddings or Prediction Candidates
+
+Stage 2: Symbolic Reasoner
+--------------------------
+    ↓
+Extracted features, keywords, or output logits
+    ↓
+Rule-based engine / decision tree / logic program
+    ↓
+Symbolic Reasoning + Domain Knowledge Rules (e.g., "if source is unverified AND sentiment is extreme → likely disinfo")
+    ↓
+Final Output + Explanation
+💡 Symbolic Layer Options:
+Logic rules: Custom-written, e.g., using sympy, pyknow, or simple conditionals
+
+Decision Tree over embeddings: Easily interpretable paths
+
+Neural Theorem Provers (advanced): e.g., DeepProbLog, but requires more setup
+
+Post-hoc explainers: LIME/SHAP to generate rule-like justifications (limited, not truly symbolic)
+
+🧠 Tools & Libraries:
+HuggingFace Transformers
+
+Scikit-learn (for decision trees)
+
+PyKnow, SymPy, or custom symbolic engine
+
+Optional: LIME, SHAP, alibi
+
+📦 Output:
+Classification + human-readable rationale (e.g., “Predicted as disinfo because it matches 3 risk indicators: source + language + lack of evidence”)
+
+🔍 Comparison Table
+Feature	Baseline Model	NeSy AI Model
+Accuracy	High (with BERT)	High-to-Moderate (depends on rules)
+Explainability	Low	High
+Speed	Fast	Slower (especially with symbolic layer)
+Fit for Intelligence Ops	Poor (black-box risk)	Strong (transparent reasoning)
+Effort to Build	Moderate	High (especially logic/rule engineering)
+Customisation	Low	High (rules tailored to use-case)
